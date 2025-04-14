@@ -1,1 +1,1 @@
-// Placeholder script.js
+// Reconstructed original script.js goes here
