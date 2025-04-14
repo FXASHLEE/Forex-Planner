@@ -507,5 +507,26 @@
             }
         };
     </script>
+  function start() {
+    gapi.load('client:auth2', initClient);
+  }
+
+  function initClient() {
+    gapi.client.init({
+      apiKey: 'AIzaSyDCHP3fQNywHnEZc4f7PWZWeY7TtY3ryDg', // put your API key here
+      clientId: '861920609388-eu9f25n2igd0ja9081emi2qo5ccpi22r.apps.googleusercontent.com', // put your Client ID here
+      discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/drive/v3/rest'],
+      scope: 'https://www.googleapis.com/auth/drive.file'
+    }).then(function () {
+      console.log("Google API is ready!");
+    }, function(error) {
+      console.error("Google API failed to load", error);
+    });
+  }
+</script>
+
+<!-- This will start the Google API when the page loads -->
+<body onload="start()">
+
 </body>
 </html>

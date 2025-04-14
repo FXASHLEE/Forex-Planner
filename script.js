@@ -693,3 +693,38 @@ function debounce(func, wait) {
         }, wait);
     };
 }
+document.addEventListener("DOMContentLoaded", function () {
+  const authorizeButton = document.getElementById("authorize-button");
+  const signoutButton = document.getElementById("signout-button");
+
+  authorizeButton.addEventListener("click", handleAuthClick);
+  signoutButton.addEventListener("click", handleSignoutClick);
+});
+
+function handleAuthClick() {
+  if (gapi.auth2) {
+    gapi.auth2.getAuthInstance().signIn().then(() => {
+      console.log("Signed in!");
+      document.getElementById("authorize-button").style.display = "none";
+      document.getElementById("signout-button").style.display = "inline-block";
+      document.getElementById("sync-status").textContent = "Connected to Google Drive";
+      document.getElementById("sync-status").classList.remove("disconnected");
+      document.getElementById("sync-status").classList.add("connected");
+    });
+  } else {
+    console.error("Google API is not ready yet.");
+  }
+}
+function handleSignoutClick() {
+  if (gapi.auth2) {
+    gapi.auth2.getAuthInstance().signOut().then(() => {
+      console.log("Signed out!");
+      document.getElementById("authorize-button").style.display = "inline-block";
+      document.getElementById("signout-button").style.display = "none";
+      document.getElementById("sync-status").textContent = "Not connected to Google Drive";
+      document.getElementById("sync-status").classList.remove("connected");
+      document.getElementById("sync-status").classList.add("disconnected");
+    });
+  }
+}
+
