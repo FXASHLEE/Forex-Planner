@@ -2,9 +2,9 @@
 // This file handles authentication and data operations with Google Drive
 
 // Client ID from Google Cloud Console
-const CLIENT_ID = 'YOUR_CLIENT_ID';
+const CLIENT_ID = '861920609388-eu9f25n2igd0ja9081emi2qo5ccpi22r.apps.googleusercontent.com';
 // API Key from Google Cloud Console
-const API_KEY = 'YOUR_API_KEY';
+const API_KEY = 'AIzaSyDCHP3fQNywHnEZc4f7PWZWeY7TtY3ryDg';
 // Discovery docs for the API
 const DISCOVERY_DOCS = ['https://www.googleapis.com/discovery/v1/apis/drive/v3/rest'];
 // Authorization scopes required by the API
